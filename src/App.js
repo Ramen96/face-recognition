@@ -76,7 +76,7 @@ class App extends Component {
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Your PAT (Personal Access Token) can be found in the portal under Authentification
-    const PAT = '4b29b7ea0463469b8fc50f8cdc336f68';
+    const PAT = 'YOUR_PTA_TOKEN';
     // Specify the correct user_id/app_id pairings
     // Since you're making inferences outside your app's scope
     const USER_ID = 'clarifai';
