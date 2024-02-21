@@ -9,23 +9,25 @@ import ParticlesBg from 'particles-bg';
 import Signin from './components/Signin/Signin';
 import './App.css';
 
+const initialState = {
+    input: '',
+    imageUrl: '',
+    box: {},
+    route: 'signin',
+    isSignedin: false,
+    user: {
+      id: '',
+      name: '',
+      email: '',
+      entries: 0,
+      joined: ''
+    }
+}
+
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      input: '',
-      imageUrl: '',
-      box: {},
-      route: 'signin',
-      isSignedin: false,
-      user: {
-        id: '',
-        name: '',
-        email: '',
-        entries: 0,
-        joined: ''
-      }
-    }
+    this.state = initialState;
   }
 
   loadUser = (data) => {
@@ -154,6 +156,7 @@ class App extends Component {
             .then(count => {
               this.setState(Object.assign(this.state.user, { entries: count }))
             })
+            .catch(err => console.log('ERROR: ', err))
           }
           this.displayFaceBox(this.calculateFaceLocation(result));
         }) 
@@ -163,7 +166,7 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === 'signout'){
-      this.setState({ isSignedin: false })
+      this.setState(initialState)
     } else if (route === 'home') {
       this.setState({isSignedin: true})
     }
