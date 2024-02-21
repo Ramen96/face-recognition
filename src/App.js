@@ -22,7 +22,7 @@ class App extends Component {
         id: '',
         name: '',
         email: '',
-        entreies: 0,
+        entries: 0,
         joined: ''
       }
     }
@@ -33,7 +33,7 @@ class App extends Component {
       id: data.id,
       name: data.name,
       email: data.email,
-      entreies: data.entreies,
+      entries: data.entries,
       joined: data.joined
     }})
   }
@@ -93,7 +93,7 @@ class App extends Component {
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Your PAT (Personal Access Token) can be found in the portal under Authentification
-    const PAT = 'YOUR_PTA_TOKEN';
+    const PAT = '3281b828c455496aad24c3a040f19464';
     // Specify the correct user_id/app_id pairings
     // Since you're making inferences outside your app's scope
     const USER_ID = 'clarifai';
@@ -152,7 +152,7 @@ class App extends Component {
             })
             .then(response => response.json())
             .then(count => {
-              this.setState(Object.assign(this.state.user, { entreies: count }))
+              this.setState(Object.assign(this.state.user, { entries: count }))
             })
           }
           this.displayFaceBox(this.calculateFaceLocation(result));
@@ -180,7 +180,7 @@ class App extends Component {
           { this.state.route === 'home'
             ? <>  
                 <Logo />
-                <Rank name={this.state.user.name} entries={this.state.user.entreies}/>
+                <Rank name={this.state.user.name} entries={this.state.user.entries}/>
                 <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
                 <FaceRecognition imageUrl={this.state.imageUrl} box={this.state.box} />
               </>
