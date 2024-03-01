@@ -88,7 +88,7 @@ class App extends Component {
 
   onSubmit = () => {
     this.setState({ imageUrl: this.state.input});
-        fetch('http://localhost:3000/imageurl', {
+        fetch('https://thawing-shelf-51980-b16b37509b74.herokuapp.com/imageurl', {
           method: 'post',
           headers: {'content-Type': 'application/json'},
           body: JSON.stringify({
@@ -98,7 +98,7 @@ class App extends Component {
       .then(response => response.json())
       .then(result => {
         if (result) {
-          fetch('http://localhost:3000/image', {
+          fetch('https://thawing-shelf-51980-b16b37509b74.herokuapp.com/image', {
             method: 'put',
             headers: {'content-Type': 'application/json'},
             body: JSON.stringify({
